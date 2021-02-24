@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+		<title>Cadastrar-se</title>
+	</head>
+	<body>
+
+		<div id="registro" class="mx-auto m-4 bg-light rounded shadow-lg p-4">
+			<h1>Cadastre-se</h1>
+			<hr>
+			<form method="POST">
+			  <div class="mb-3">
+			    <label for="ipt_nome" class="form-label">Nome</label>
+			    <input type="text" class="form-control" name="nome" id="ipt_nome" placeholder="Insira seu nome" required>
+			  </div>
+
+			  <div class="row">
+			  	<div class="col-md-8 mb-3">
+			  		<label for="ipt_nome" class="form-label">Nome</label>
+			    	<input type="text" class="form-control" name="nome" id="ipt_nome" placeholder="Insira seu nome" required>
+			  	</div>
+			  	<div class="col-md-4 mb-3">
+			  		<label for="ipt_nascimento" class="form-label">Nascimento</label>
+			    	<input type="date" class="form-control" name="nascimento" id="ipt_nascimento">
+			  	</div>
+			  </div>
+
+			  <div class="mb-3">
+			    <label for="ipt_email" class="form-label">E-mail</label>
+			    <input type="email" class="form-control" name="email" id="ipt_email" placeholder="Insira seu e-mail" required>
+			  </div>
+
+			  <fieldset class="border rounded p-3 mb-3">
+			  	<div class="form-check">
+					  <input class="form-check-input" type="radio" value="masculino" name="sexo" id="radio1" checked>
+					  <label class="form-check-label" for="radio1">Masculino</label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="sexo" value="feminino" id="radio2">
+					  <label class="form-check-label" for="radio2">Feminino</label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" name="sexo" value="outros" id="radio3">
+					  <label class="form-check-label" for="radio3">Outros</label>
+					</div>
+			  </fieldset>
+
+			  <div class="mb-3">
+			    <label for="ipt_cep" class="form-label">CEP</label>
+			    <input oninput="modificar_campos();" name="cep" pattern="[0-9]{8}" type="text" class="form-control" id="ipt_cep" placeholder="Ex: 77888000 (sem hífen)" required>
+			  </div>
+
+			  <div class="row mb-3">
+			  	<div class="col-md-6">
+			  		<label for="ipt_bairro" class="form-label">Bairro</label>
+			    	<input type="text" class="form-control" name="bairro" id="ipt_bairro" readonly>
+			  	</div>
+			  	<div class="col-md-6">
+			  		<label for="ipt_cidade" class="form-label">Cidade</label>
+			    	<input type="text" class="form-control" name="cidade" id="ipt_cidade" readonly>
+			  	</div>
+			  </div>
+
+			  <div class="row mb-3">
+			  	<div class="col-md-8">
+			  		<label for="ipt_logradouro" class="form-label">Logradouro</label>
+			    	<input type="text" class="form-control" name="logradouro" id="ipt_logradouro" readonly>
+			  	</div>
+			  	<div class="col-md-4">
+			  		<label for="ipt_estado" class="form-label">Estado</label>
+			    	<input type="text" class="form-control" name="estado" id="ipt_estado" readonly>
+			  	</div>
+			  </div>
+
+			  <div class="mb-3">
+			    <label for="ipt_comp" class="form-label">Complemento</label>
+			    <input type="text" class="form-control" name="complemento" id="ipt_comp" placeholder="Exemplo: casa 14" required>
+			  </div>
+
+			  <div class="mb-3">
+			    <label for="ipt_senha" class="form-label">Senha</label>
+			    <input type="password" class="form-control" name="senha" id="ipt_senha" placeholder="Insira sua senha" required>
+			  </div>
+
+			  <div class="text-end">
+			  	<a href="login.html" class="text-decoration-none">Já tenho uma conta</a>
+			  </div>
+
+			  <button type="submit" class="btn btn-primary">Enviar</button>
+			</form>
+		</div>
+
+
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-replace-svg="nest"></script>
+		<script>
+	  	function modificar_campos(){
+	    	var cep = document.getElementById('ipt_cep').value;
+	    	if(cep.length==8){
+			    var xmlHttp = new XMLHttpRequest();
+			    xmlHttp.open("GET", "https://viacep.com.br/ws/"+cep+"/json/", false);
+			    xmlHttp.send(null);
+			    let info = JSON.parse(xmlHttp.responseText);
+			    document.getElementById('ipt_bairro').value = info.bairro;
+			    document.getElementById('ipt_cidade').value = info.localidade;
+			    document.getElementById('ipt_logradouro').value = info.logradouro;
+			    document.getElementById('ipt_estado').value = info.uf;
+			  }
+		  }
+	  </script>
+	</body>
+</html>
