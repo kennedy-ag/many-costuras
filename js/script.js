@@ -1,3 +1,3 @@
-$("#botao-remover").click(function () {
-	$("#produto1").hide();
+$(".botao-remover").click(function () {
+	$(this).hide();
 });

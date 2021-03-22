@@ -13,19 +13,19 @@
 		<div id="login" class="mx-auto m-4 bg-light rounded shadow-lg p-4">
 			<h1>Login</h1>
 			<hr>
-			<form>
+			<form method="POST" action="php/login.php">
 			  <div class="mb-3">
-			    <label for="exampleInputEmail1" class="form-label">E-mail</label>
-			    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Insira seu e-mail">
+			    <label for="cpf" class="form-label">CPF</label>
+			    <input type="number" name="cpf" class="form-control" id="cpf" placeholder="Insira seu CPF">
 			  </div>
 			  <div class="mb-3">
-			    <label for="exampleInputPassword1" class="form-label">Senha</label>
-			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Insira sua senha">
+			    <label for="senha" class="form-label">Senha</label>
+			    <input type="password" name="senha" class="form-control" id="senha" placeholder="Insira sua senha">
 			  </div>
 			  <div class="text-end">
 			  	<a href="cadastro.html" class="text-decoration-none">Criar conta</a>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Entrar</button>
+			  <input type="submit" name="entrar" value="Entrar" class="btn btn-primary">
 			</form>
 		</div>
 

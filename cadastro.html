@@ -13,27 +13,21 @@
 		<div id="registro" class="mx-auto m-4 bg-light rounded shadow-lg p-4">
 			<h1>Cadastre-se</h1>
 			<hr>
-			<form method="POST">
+			<form method="POST" action="php/registrar.php">
 			  <div class="mb-3">
 			    <label for="ipt_nome" class="form-label">Nome</label>
-			    <input type="text" class="form-control" name="nome" id="ipt_nome" placeholder="Insira seu nome" required>
-			  </div>
-
-			  <div class="row">
-			  	<div class="col-md-8 mb-3">
-			  		<label for="ipt_nome" class="form-label">Nome</label>
-			    	<input type="text" class="form-control" name="nome" id="ipt_nome" placeholder="Insira seu nome" required>
-			  	</div>
-			  	<div class="col-md-4 mb-3">
-			  		<label for="ipt_nascimento" class="form-label">Nascimento</label>
-			    	<input type="date" class="form-control" name="nascimento" id="ipt_nascimento">
-			  	</div>
+			    <input type="text" class="form-control" maxlength="50" name="nome" id="ipt_nome" placeholder="Insira seu nome" required>
 			  </div>
 
 			  <div class="mb-3">
-			    <label for="ipt_email" class="form-label">E-mail</label>
-			    <input type="email" class="form-control" name="email" id="ipt_email" placeholder="Insira seu e-mail" required>
+			    <label for="ipt_cpf" class="form-label">CPF</label>
+			    <input type="text" pattern="[0-9]{11}" class="form-control" name="cpf" id="ipt_cpf" placeholder="Ex. 00011122234" required>
 			  </div>
+
+		  	<div class="mb-3">
+		  		<label for="ipt_telefone" class="form-label">Telefone</label>
+		    	<input type="text" pattern="[0-9]{11}" class="form-control" name="telefone" id="ipt_telefone" placeholder="Ex. 61998765454" required>
+		  	</div>
 
 			  <fieldset class="border rounded p-3 mb-3">
 			  	<div class="form-check">
@@ -79,7 +73,7 @@
 
 			  <div class="mb-3">
 			    <label for="ipt_comp" class="form-label">Complemento</label>
-			    <input type="text" class="form-control" name="complemento" id="ipt_comp" placeholder="Exemplo: casa 14" required>
+			    <input type="text" class="form-control" name="complemento" maxlength="200" id="ipt_comp" placeholder="Exemplo: casa 14" required>
 			  </div>
 
 			  <div class="mb-3">
@@ -91,7 +85,7 @@
 			  	<a href="login.html" class="text-decoration-none">Já tenho uma conta</a>
 			  </div>
 
-			  <button type="submit" class="btn btn-primary">Enviar</button>
+			  <input type="submit" class="btn btn-primary">
 			</form>
 		</div>
 
