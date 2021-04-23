@@ -3,7 +3,7 @@ $cpf = $_POST['cpf'];
 $senha = md5($_POST['senha']);
 $entrar = $_POST['entrar'];
 
-$connect = mysqli_connect('sql103.epizy.com','epiz_28085125','1DPXttyY2au3m', 'epiz_28085125_loja');
+$connect = mysqli_connect('localhost','root','', 'loja');
   if (isset($entrar)) {
 
     $verifica = mysqli_query($connect, "SELECT * FROM usuarios WHERE cpf =

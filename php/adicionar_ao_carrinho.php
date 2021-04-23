@@ -3,7 +3,7 @@
 	  	$login_cookie = $_COOKIE['cpf'];
 	  	$id = $_GET['p'];
 
-		$connect = mysqli_connect('sql103.epizy.com','epiz_28085125','1DPXttyY2au3m', 'epiz_28085125_loja');
+		$connect = mysqli_connect('localhost','root','', 'loja');
 		$verifica = mysqli_query($connect, "SELECT * FROM carrinho WHERE produto_id =
 		'$id' AND user_id = '$login_cookie'") or die("Erro ao selecionar");
 

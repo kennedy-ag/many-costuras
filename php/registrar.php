@@ -12,7 +12,7 @@ $estado = $_POST['estado'];
 $complemento = $_POST['complemento'];
 $senha = MD5($_POST['senha']);
 
-$connect = mysqli_connect('sql103.epizy.com','epiz_28085125','1DPXttyY2au3m', 'epiz_28085125_loja');
+$connect = mysqli_connect('localhost','root','', 'loja');
 $query_select = "SELECT cpf FROM usuarios WHERE cpf = '$cpf'";
 $select = mysqli_query($connect, $query_select);
 $array = mysqli_fetch_array($select);

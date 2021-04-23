@@ -1,5 +1,5 @@
 <?php
-	$conn = new PDO('mysql:host=sql103.epizy.com;dbname=epiz_28085125_loja', 'epiz_28085125', '1DPXttyY2au3m');
+	$conn = new PDO('mysql:host=localhost;dbname=loja', 'root', '');
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	if(isset($_COOKIE['cpf'])){
@@ -9,7 +9,7 @@
 	}
 ?>
 <?php
-	$connect = mysqli_connect('sql103.epizy.com','epiz_28085125','1DPXttyY2au3m', 'epiz_28085125_loja');
+	$connect = mysqli_connect('localhost','root','', 'loja');
 	$verifica = mysqli_query($connect, "SELECT * FROM carrinho WHERE user_id = '$login_cookie'") or die("Erro ao selecionar");
 	$quantidade = mysqli_num_rows($verifica);
 	$total = 0;
@@ -99,8 +99,8 @@
 						<hr>
 						<p><strong>Total de produtos: </strong><?php echo "$quantidade"; ?></p>
 						<p><strong>Valor total: </strong>R$ <?php echo "$total"; ?></p>
-						<?php echo "<a href='php/boleto_php/boleto_php.php?valor={$total}' class='btn btn-primary d-flex ms-auto my-3'>Pagar com boleto</a>"; ?>
-						<?php echo "<a href='php/index.php?valor={$total}' class='btn btn-primary d-flex ms-auto my-3'>Pagar com PIX</a>"; ?>
+						<a href='#' class='btn btn-primary d-flex ms-auto my-3'>Pagar com boleto</a>
+						<a href='#' class='btn btn-primary d-flex ms-auto my-3'>Pagar com PIX</a>
 					</div>
 				</div>
 
