@@ -1,2 +1,2 @@
-# loja_ce
-Repositório para a loja virtual de Comércio Eletrônico (disciplina).
+# Many Costuras
+Repositório para o projeto inicial do website de venda de produtos produzidos em casa.
